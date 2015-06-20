@@ -36,6 +36,7 @@ public class G {
 
     int[] ties;
     boolean[] visited;
+    final int MOD = 1000000007;
 
     public void solve() throws IOException {
         int tests = in.nextInt();
@@ -64,14 +65,14 @@ public class G {
                 int color = in.nextInt();
 
                 if (color == 0) {
-                    answer += ((long) (i + 1) * (long) ties[person]) % (1000000007);
+                    answer += ((long) (i + 1) * (long) ties[person]);
                     continue;
                 }
 
                 Arrays.fill(visited, false);
                 dfs(workersGraph, person, importance, color);
             }
-            out.println(answer);
+            out.println(answer % MOD);
         }
     }
 
